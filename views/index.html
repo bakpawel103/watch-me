@@ -4,31 +4,14 @@
     <meta charset="UTF-8">
     <title>Watch me</title>
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-        function searchInvestment() {
-            console.log(document.getElementById('investment-search').value);
-            httpGet('https://www.bankier.pl/fundusze/tfi/TFIPCS', (responseString) => {
-                console.log(responseString);
-            });
-        }
-
-        function httpGet(url, callback) {
-            const xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function() {
-                if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
-                    callback(xmlHttp.responseText);
-            }
-            xmlHttp.open("GET", url, true);
-            xmlHttp.send(null);
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="container">
         <label for="investment-search">Search for investment:</label>
         <input type="search" id="investment-search"/>
-        <button value="Search" style="color: black" onclick="searchInvestment()">Search</button>
+        <button value="Search" style="color: black">Search</button>
+        <div id="output"></div>
     </div>
 </body>
 </html>
